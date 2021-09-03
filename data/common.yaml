@@ -1,5 +1,5 @@
 ---
-auditd::service_manage: false
+auditd::service_manage: true
 auditd::service_ensure: 'running'
 auditd::service_enable: true
 auditd::service_name: 'auditd'
@@ -34,8 +34,8 @@ auditd::conf:
   dispatcher: /sbin/audispd
   name_format: NONE
   name: "%{facts.fqdn}"
-  max_log_file: 8
   max_log_file_action: ROTATE
+  verify_email : yes
   space_left: 75
   space_left_action: SYSLOG
   action_mail_acct: root
@@ -48,6 +48,7 @@ auditd::conf:
   tcp_max_per_addr: 1
   tcp_client_ports: ''
   tcp_client_max_idle: 0
+  transport: TCP
   enable_krb5: no
   krb5_principal: auditd
   krb5_key_file: '/etc/audit/audit.key'
