@@ -96,4 +96,4 @@ This module is public and can be found on github[here](https://github.com/ubeek/
 
 ## Acknowledgements
 
-This module is based upon the auditd module by Luther Barnum, which can be found at <https://github.com/lgbarn/auditd>.
+This module is a fork of <https://github.com/lgbarn/auditd>.

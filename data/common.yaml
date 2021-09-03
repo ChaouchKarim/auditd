@@ -1,5 +1,5 @@
 ---
-auditd::service_manage: true
+auditd::service_manage: false
 auditd::service_ensure: 'running'
 auditd::service_enable: true
 auditd::service_name: 'auditd'
@@ -31,7 +31,7 @@ auditd::conf:
   dispatcher: /sbin/audispd
   name_format: user
   name: "%{facts.fqdn}"
-  max_log_file: 6 
+  max_log_file: 6
   max_log_file_action: ROTATE
   space_left: 75
   space_left_action: SYSLOG
