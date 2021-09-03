@@ -18,20 +18,23 @@ auditd::auditd_rules_file_owner: 'root'
 auditd::auditd_rules_file_group: 'root'
 auditd::auditd_rules_file_mode: '0640'
 
-## Conf settings
+## Default auditd settings
 auditd::conf:
+  local_events : yes
+  write_logs : yes
   log_file: /var/log/audit/audit.log
-  log_format: RAW
+  log_format: ENRICHED
   log_group: root
   priority_boost: 4
-  flush: INCREMENTAL
-  freq: 20
+  flush: INCREMENTAL_ASYNC
+  freq: 50
   num_logs: 5
+  max_log_file: 8
   disp_qos: lossy
   dispatcher: /sbin/audispd
-  name_format: user
+  name_format: NONE
   name: "%{facts.fqdn}"
-  max_log_file: 6
+  max_log_file: 8
   max_log_file_action: ROTATE
   space_left: 75
   space_left_action: SYSLOG
@@ -47,7 +50,12 @@ auditd::conf:
   tcp_client_max_idle: 0
   enable_krb5: no
   krb5_principal: auditd
-  krb5_key_file: ''
+  krb5_key_file: '/etc/audit/audit.key'
+  distribute_network : no
+  q_depth : 400
+  overflow_action : SYSLOG
+  max_restarts : 10
+  plugin_dir : /etc/audit/plugins.d
 
 # Default rules
 
