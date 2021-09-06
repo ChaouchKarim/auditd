@@ -25,8 +25,8 @@
 # @api private
 class auditd::install inherits auditd {
 
-  package { $auditd::package_name:
-    ensure => $auditd::package_ensure,
-  }
+#  package { $auditd::package_name:
+#    ensure => $auditd::package_ensure,
+#  }
 
 }

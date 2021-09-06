@@ -1,5 +1,5 @@
 ---
-auditd::service_manage: false
+auditd::service_manage: true
 auditd::service_ensure: 'running'
 auditd::service_enable: true
 auditd::service_name: 'auditd'
@@ -12,7 +12,8 @@ auditd::auditd_file_ensure: file
 auditd::auditd_file_owner: 'root'
 auditd::auditd_file_group: 'root'
 auditd::auditd_file_mode: '0640'
-auditd::auditd_rules_file: '/etc/audit/rules.d/puppet.rules'
+auditd::auditd_puppet_rules_file: '/etc/audit/rules.d/puppet.rules'
+auditd::auditd_rules_file: '/etc/audit/audit.rules'
 auditd::auditd_rules_file_ensure: file
 auditd::auditd_rules_file_owner: 'root'
 auditd::auditd_rules_file_group: 'root'
@@ -45,13 +46,13 @@ auditd::conf:
   tcp_max_per_addr: 1
   tcp_client_ports: ''
   tcp_client_max_idle: 0
-  transport: TCP
+  #transport: TCP
   krb5_principal: auditd
   krb5_key_file: '/etc/audit/audit.key'
-  q_depth : 400
-  overflow_action : SYSLOG
-  max_restarts : 10
-  plugin_dir : /etc/audit/plugins.d
+  #q_depth : 400
+  #overflow_action : SYSLOG
+  #max_restarts : 10
+  #plugin_dir : /etc/audit/plugins.d
 
 # Default rules
 auditd::auditd_default_rules:
