@@ -12,7 +12,7 @@ auditd::auditd_file_ensure: file
 auditd::auditd_file_owner: 'root'
 auditd::auditd_file_group: 'root'
 auditd::auditd_file_mode: '0640'
-auditd::auditd_rules_file: '/etc/audit/audit.rules'
+auditd::auditd_rules_file: '/etc/audit/rules.d/puppet.rules'
 auditd::auditd_rules_file_ensure: file
 auditd::auditd_rules_file_owner: 'root'
 auditd::auditd_rules_file_group: 'root'
@@ -33,7 +33,6 @@ auditd::conf:
   name_format: NONE
   name: "%{facts.fqdn}"
   max_log_file_action: ROTATE
-  verify_email : yes
   space_left: 75
   space_left_action: SYSLOG
   action_mail_acct: root
@@ -55,7 +54,13 @@ auditd::conf:
   plugin_dir : /etc/audit/plugins.d
 
 # Default rules
+auditd::auditd_default_rules:
+  - '# Monitor for use of process ID change (switching accounts) applications'
+  - '-w /bin/su -p x -k priv_esc'
+  - '-w /usr/bin/sudo -p x -k priv_esc'
+  - '-w /etc/sudoers -p rw -k priv_esc'
 
+#Other rules
 auditd::auditd_rules:
   - '# Time changes'
   - '-a always,exit -F arch=b32 -S adjtimex -S settimeofday -k time-change'

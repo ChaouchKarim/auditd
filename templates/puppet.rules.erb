@@ -15,6 +15,12 @@
 # Make this bigger for busy systems
 -b <%= @auditd_buffer %>
 
+<% if @auditd_default_rules %>
+<% @auditd_default_rules.each do |value| -%>
+<%= value %>
+<% end %>
+<% end %>
+
 <% if @auditd_rules %>
 <% @auditd_rules.each do |value| -%>
 <%= value %>

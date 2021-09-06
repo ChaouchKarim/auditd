@@ -19,7 +19,7 @@
 #   Specify whether or not to enable the auditd service to run at startup. Default value: true
 #
 # @param service_name
-#   The name for the auditd service. Default value: 'auditd' 
+#   The name for the auditd service. Default value: 'auditd'
 #
 # @param service_hasstatus
 #   Specify whether the auditd service supports the status command. Default value: true
@@ -98,6 +98,7 @@ class auditd (
   String $auditd_rules_file_group,
   String $auditd_rules_file_mode,
   Array  $auditd_rules,
+  Array  $auditd_default_rules,
   String $auditd_buffer = '8192',
   Hash   $auditd_conf = {},
 ) {
