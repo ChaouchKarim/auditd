@@ -1,5 +1,5 @@
 ---
-auditd::service_manage: true
+auditd::service_manage: false
 auditd::service_ensure: 'running'
 auditd::service_enable: true
 auditd::service_name: 'auditd'
