@@ -1,0 +1,12 @@
+#****************************
+# This file is Puppet managed
+# DO NOT EDIT
+#****************************
+
+<% @_debian_ubuntu_conf.each do |key,value| -%>
+<% if !value.to_s.empty? -%>
+<%= key %> = <%= value -%>
+<% else -%>
+#<%= key %> = <%= value -%>
+<% end %>
+<% end %>

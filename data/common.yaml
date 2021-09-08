@@ -19,8 +19,8 @@ auditd::auditd_rules_file_owner: 'root'
 auditd::auditd_rules_file_group: 'root'
 auditd::auditd_rules_file_mode: '0640'
 
-## Default auditd settings
-auditd::conf:
+## Default centos auditd settings
+auditd::centos_conf:
   log_file: /var/log/audit/audit.log
   log_format: ENRICHED
   log_group: root
@@ -53,6 +53,36 @@ auditd::conf:
   #overflow_action : SYSLOG
   #max_restarts : 10
   #plugin_dir : /etc/audit/plugins.d
+
+
+## Default debian/ubuntu auditd settings
+auditd::debian_ubuntu_conf:
+  log_file : /var/log/audit/audit.log
+  log_format : RAW
+  log_group : root
+  priority_boost : 4
+  flush : INCREMENTAL
+  freq : 20
+  num_logs : 5
+  disp_qos : lossy
+  dispatcher : /sbin/audispd
+  name_format : NONE
+  name : "%{facts.fqdn}"
+  max_log_file : 6
+  max_log_file_action : ROTATE
+  space_left : 75
+  space_left_action : SYSLOG
+  action_mail_acct : root
+  admin_space_left : 50
+  admin_space_left_action : SUSPEND
+  disk_full_action : SUSPEND
+  disk_error_action : SUSPEND
+  tcp_listen_queue : 5
+  tcp_max_per_addr : 1
+  tcp_client_max_idle : 0
+  #enable_krb5 : no
+  krb5_principal : auditd
+
 
 # Default rules
 auditd::auditd_default_rules:

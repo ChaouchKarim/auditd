@@ -1,6 +1,6 @@
 {
   "name": "karimchaouch-auditd",
-  "version": "1.2.0",
+  "version": "1.2.5",
   "author": "Karim Chaouch",
   "summary": "Configures auditd and add some standard rules",
   "license": "proprietary",
@@ -31,11 +31,11 @@
       ]
     },
     {
-      "operatingsystem": "OracleLinux",
+      "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "5",
-        "6",
-        "7"
+        "14",
+        "16",
+        "18"
       ]
     }
   ],

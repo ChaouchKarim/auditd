@@ -13,7 +13,7 @@
 
 ## Overview
 
-This module will install a basic template for auditd rules.
+This module will install a basic template for auditd rules on CentOS / Ubuntu
 
 ## Module Description
 
@@ -87,12 +87,12 @@ class { 'auditd': }
 
 ## Limitations
 
-This module has only been tested on RedHat,CentOS and it derivatives.
-All other distributions are not supported.
+This module has only been tested on RedHat 7 & 8 /  Ubuntu 14 & 16 & 18.
+For other distributions, the module have to be tested.
 
 ## Development
 
-This module is public and can be found on github[here](https://github.com/ubeek/auditd)
+This module is public and can be found on github[here](https://github.com/ChaouchKarim/auditd)
 
 ## Acknowledgements
 

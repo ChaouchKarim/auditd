@@ -93,6 +93,7 @@ class auditd (
   String $auditd_file_group,
   String $auditd_file_mode,
   String $auditd_rules_file,
+  String $auditd_puppet_rules_file,
   String $auditd_rules_file_ensure,
   String $auditd_rules_file_owner,
   String $auditd_rules_file_group,
@@ -102,7 +103,8 @@ class auditd (
   String $auditd_buffer = '8192',
   Hash   $auditd_conf = {},
 ) {
-  $_conf = lookup('auditd::conf') + $auditd_conf
+  $_centos_conf = lookup('auditd::centos_conf') + $auditd_conf
+  $_debian_ubuntu_conf = lookup('auditd::debian_ubuntu_conf') + $auditd_conf
 
   contain auditd::install
   contain auditd::config
