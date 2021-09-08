@@ -1,6 +1,6 @@
 {
   "name": "karimchaouch-auditd",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "author": "Karim Chaouch",
   "summary": "Configures auditd and add some standard rules",
   "license": "proprietary",
