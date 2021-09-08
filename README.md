@@ -92,7 +92,7 @@ For other distributions, the module have to be tested.
 
 ## Development
 
-This module is public and can be found on github[here](https://github.com/ChaouchKarim/auditd)
+This module is public and can be found on github [here](https://github.com/ChaouchKarim/auditd)
 
 ## Acknowledgements
 
